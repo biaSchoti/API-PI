@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<%- include('includes/head', { title: 'Minhas Compras' }) %>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <script>
+    /* Set rates + misc */
+    var taxRate = 0.05;
+    var shippingRate = 15.00;
+    var fadeTime = 300;
+
+
+    /* Assign actions */
+    $('.product-quantity input').change(function () {
+      updateQuantity(this);
+    });
+
+    $('.product-removal button').click(function () {
+      removeItem(this);
+    });
+
+
+    /* Recalculate cart */
+    function recalculateCart() {
+      var subtotal = 0;
+
+      /* Sum up row totals */
+      $('.product').each(function () {
+        subtotal += parseFloat($(this).children('.product-line-price').text());
+      });
+
+      /* Calculate totals */
+      var tax = subtotal * taxRate;
+      var shipping = (subtotal > 0 ? shippingRate : 0);
+      var total = subtotal + tax + shipping;
+
+      /* Update totals display */
+      $('.totals-value').fadeOut(fadeTime, function () {
+        $('#cart-subtotal').html(subtotal.toFixed(2));
+        $('#cart-tax').html(tax.toFixed(2));
+        $('#cart-shipping').html(shipping.toFixed(2));
+        $('#cart-total').html(total.toFixed(2));
+        if (total == 0) {
+          $('.checkout').fadeOut(fadeTime);
+        } else {
+          $('.checkout').fadeIn(fadeTime);
+        }
+        $('.totals-value').fadeIn(fadeTime);
+      });
+    }
+
+
+    /* Update quantity */
+    function updateQuantity(quantityInput) {
+      /* Calculate line price */
+      var productRow = $(quantityInput).parent().parent();
+      var price = parseFloat(productRow.children('.product-price').text());
+      var quantity = $(quantityInput).val();
+      var linePrice = price * quantity;
+
+      /* Update line price display and recalc cart totals */
+      productRow.children('.product-line-price').each(function () {
+        $(this).fadeOut(fadeTime, function () {
+          $(this).text(linePrice.toFixed(2));
+          recalculateCart();
+          $(this).fadeIn(fadeTime);
+        });
+      });
+    }
+
+
+    /* Remove item from cart */
+    function removeItem(removeButton) {
+      /* Remove row from DOM and recalc cart total */
+      var productRow = $(removeButton).parent().parent();
+      productRow.slideUp(fadeTime, function () {
+        productRow.remove();
+        recalculateCart();
+      });
+    }
+  </script>
+
+
+  <style>
+    @charset "utf-8";
+
+    @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,600);
+
+    html,
+    html a {
+      -webkit-font-smoothing: antialiased;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+    }
+
+    a {
+      border: 0 none;
+      outline: 0;
+      text-decoration: none;
+    }
+
+    strong {
+      font-weight: bold;
+    }
+
+    p {
+      margin: 0.75rem 0 0;
+      color: #fff;
+    }
+
+    h1 {
+      font-size: 0.75rem;
+      font-weight: normal;
+      margin: 0;
+      padding: 0;
+    }
+
+    input,
+    button {
+      border: 0 none;
+      outline: 0 none;
+    }
+
+    button {
+      background-color: #666;
+      color: #fff;
+    }
+
+    button:hover,
+    button:focus {
+      background-color: #555;
+    }
+
+    input,
+    button,
+    .basket,
+    .basket-module,
+    .basket-labels,
+    .item,
+    .price,
+    .quantity,
+    .subtotal,
+    .basket-product,
+    .product-image,
+    .product-details {
+      float: left;
+    }
+
+    .price:before,
+    .subtotal:before,
+    .subtotal-value:before,
+    .total-value:before,
+    .promo-value:before {
+      content: "R$";
+    }
+
+    .hide {
+      display: none;
+    }
+
+    main {
+      clear: both;
+      font-size: 0.75rem;
+      margin: 0 auto;
+      overflow: hidden;
+      padding: 1rem 0;
+      width: 960px;
+    }
+
+    .basket,
+    aside {
+      padding: 0 1rem;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    .basket {
+      width: 70%;
+    }
+
+    .basket-module {
+      color: #111;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.3125rem;
+    }
+
+    .basket-labels {
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      margin-top: 1.625rem;
+      width: 100%;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      color: rgb(255, 255, 255);
+      display: inline-block;
+      padding: 0.625rem 0;
+    }
+
+    li.price:before,
+    li.subtotal:before {
+      content: "";
+    }
+
+    .item {
+      width: 55%;
+    }
+
+    .price,
+    .quantity,
+    .subtotal {
+      width: 15%;
+      color: #fff;
+    }
+
+    .subtotal {
+      text-align: right;
+    }
+
+    .remove {
+      bottom: 1.125rem;
+      float: right;
+      position: absolute;
+      right: 0;
+      text-align: right;
+      width: 45%;
+    }
+
+    .remove button {
+      background-color: transparent;
+      color: #777;
+      float: none;
+      text-decoration: underline;
+      text-transform: uppercase;
+    }
+
+    .item-heading {
+      padding-left: 4.375rem;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    .basket-product {
+      border-bottom: 1px solid #ccc;
+      padding: 1rem 0;
+      position: relative;
+      width: 100%;
+    }
+
+    .product-image {
+      width: 35%;
+    }
+
+    .product-details {
+      width: 65%;
+    }
+
+    .product-frame {
+      border: 1px solid #aaa;
+    }
+
+    .product-details {
+      padding: 0 1.5rem;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    .quantity-field {
+      background-color: #ccc;
+      border: 1px solid #aaa;
+      border-radius: 4px;
+      font-size: 0.625rem;
+      padding: 2px;
+      width: 3.75rem;
+    }
+
+    @media screen and (max-width: 640px) {
+
+      aside,
+      .basket,
+      .summary,
+      .item,
+      .remove {
+        width: 100%;
+      }
+
+      .basket-labels {
+        display: none;
+      }
+
+      .basket-module {
+        margin-bottom: 1rem;
+      }
+
+      .item {
+        margin-bottom: 1rem;
+      }
+
+      .product-image {
+        width: 40%;
+      }
+
+      .product-details {
+        width: 60%;
+      }
+
+      .price,
+      .subtotal {
+        width: 33%;
+      }
+
+      .quantity {
+        text-align: center;
+        width: 34%;
+      }
+
+      .quantity-field {
+        float: none;
+      }
+
+      .remove {
+        bottom: 0;
+        text-align: left;
+        margin-top: 0.75rem;
+        position: relative;
+      }
+
+      .remove button {
+        padding: 0;
+      }
+
+      .summary {
+        margin-top: 1.25rem;
+        position: relative;
+      }
+    }
+
+    @media screen and (min-width: 641px) and (max-width: 960px) {
+      aside {
+        padding: 0 1rem 0 0;
+      }
+
+      .summary {
+        width: 28%;
+      }
+    }
+
+    @media screen and (max-width: 960px) {
+      main {
+        width: 100%;
+      }
+
+      .product-details {
+        padding: 0 1rem;
+      }
+    }
+  </style>
+
+  <body>
+    <%- include('includes/header') %>
+
+      <main>
+        <div class="meu-carrinho">
+          <div class="tittle-meucarrinho">
+            <h2> Meu Carrinho</h2>
+          </div>
+          <div class="basket">
+            <div class="basket-labels">
+              <ul>
+                <li class="item item-heading">Item</li>
+                <li class="price">Preço</li>
+                <li class="quantity">Quantidade</li>
+                <li class="subtotal">Subtotal</li>
+              </ul>
+            </div>
+            <div class="basket-product">
+              <div class="item">
+                <div class="product-image">
+                  <img src="/images/Produtos/banana.bread.beer.jpg" width="120" height="166" alt="Placholder Image 2"
+                    class="product-frame">
+                </div>
+                <div class="product-details">
+                  <h1><strong><span class="item-quantity">4</span> x Cerveja de Banana</strong> Skol</h1>
+                  <p><strong>Skol de Banana</strong></p>
+                  <p>Código do Produto - 232321939</p>
+                </div>
+              </div>
+              <div class="price">26.00</div>
+              <div class="quantity">
+                <input type="number" value="4" min="1" class="quantity-field">
+              </div>
+              <div class="subtotal">104.00</div>
+              <div class="remove">
+                <button>Remove</button>
+              </div>
+            </div>
+            <div class="basket-product">
+              <div class="item">
+                <div class="product-image">
+                  <img src="/images/Produtos/Young.Stout.Grande.jpg" width="120" height="166" alt="Placholder Image 2"
+                    class="product-frame">
+                </div>
+                <div class="product-details">
+                  <h1><strong><span class="item-quantity">1</span> x Whistles</strong> Amella Lace Midi Dress</h1>
+                  <p><strong>Navy, Size 10</strong></p>
+                  <p>Product Code - 232321939</p>
+                </div>
+              </div>
+              <div class="price">26.00</div>
+              <div class="quantity">
+                <input type="number" value="1" min="1" class="quantity-field">
+              </div>
+              <div class="subtotal">26.00</div>
+              <div class="remove">
+                <button>Remove</button>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </main>
+      <!--
+        <div class="confirma">
+          <hr>
+          <h3 id="total" style="color: white;"><strong>TOTAL:</strong> R$ 0,00 </h3>
+          <div class="d-flex justify-content-center">
+            <button type="submit" id="continuar" class="btn mr-3" routerLink="/product/nossoproduto"><strong>Continuar
+                comprando</strong></button>
+            <button type="submit" id="comprar" class="btn" [routerLink]="['/pagamento', vTotal.toFixed(2)]"><strong>Ir
+                para
+                Pagamento</strong></button>
+          </div>
+        </div>
+        -->
+
+      <%- include('includes/footer') %>
+  </body>
+  </html>

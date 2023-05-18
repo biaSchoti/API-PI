@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%- include('includes/head', { title: 'Início' }) %>
+<body>
+  <%- include('includes/header') %>
+  
+  <main class="perfil">
+    <form  action="" id="" class="" method="POST"> 
+      <div class="perfil__container-top">
+        <h1 class="perfil__title">Minha Foto</h1>
+          <div class="perfil__dados-do-usuario">
+            <div class="dados-do-usuario__img-container">
+              <img class="img-container__avatar" src="../images/icon/avatar.png" />
+          <div class="perfil__btn-editar">
+            <a href="#">Editar</a>
+          </div>
+        </div>
+          <div class="dados-do-usuario__info nome">
+            <h2 class="info__titulo">Nome Completo</h2>
+            <div class="info__usuario">
+              <p>Nome do Usuario</p>
+            </div>
+          </div>
+          <div class="dados-do-usuario__info email">
+            <h2 class="info__titulo">E-mail</h2>
+            <p>e-mail</p>
+          </div>
+          <div class="dados-do-usuario__info nascimento">
+            <h2 class="info__titulo">Data de Nascimento</h2>
+            <p>DD/MM/AAAA</p>
+          </div>
+          <div class="dados-do-usuario__info telefone">
+            <h2 class="info__titulo">Telefone</h2>
+            <p>(XX)XXXX-XXXX</p>
+          </div>
+          <div class="dados-do-usuario__info cpf">
+            <h2 class="info__titulo">CPF</h2>
+            <p>XXX.XXX.XXX-XX</p>
+          </div>
+          <div class="dados-do-usuario__info cep">
+            <h2 class="info__titulo">CEP</h2>
+            <p>XX.XXX-XXX</p>
+          </div>
+          <div class="dados-do-usuario__info endereco">
+            <h2 class="info__titulo">Endereço</h2>
+            <p>Endereço</p>
+          </div>
+          <div class="dados-do-usuario__info numero">
+            <h2 class="info__titulo">Número</h2>
+            <p>Número</p>
+          </div>
+          <div class="dados-do-usuario__info">
+            <h2 class="info__titulo">Complemento</h2>
+            <p>Complemento</p>
+          </div>
+          <div class="dados-do-usuario__info">
+            <h2 class="info__titulo">Cidade</h2>
+            <p>Localidade</p>
+          </div>
+          <div class="dados-do-usuario__info">
+            <h2 class="info__titulo">Estado</h2>
+            <p>Estado</p>
+          </div>
+          <input type="submit" value="SALVAR">
+        </div>
+    </form>
+    
+  </main>
+
+  <%- include('includes/footer') %>
+</body>

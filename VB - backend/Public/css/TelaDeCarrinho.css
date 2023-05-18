@@ -1,0 +1,120 @@
+.tittle-meucarrinho{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+  margin-bottom: 50px;
+  margin-top: 25px;
+}
+
+.tittle-meucarrinho h1{
+  text-align: center;
+  color: white;
+
+  font-family: 'Public Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 50px;
+  line-height: 44px;
+  letter-spacing: 1.5px;
+  display: flex;
+  margin-top: 20px;
+  margin-left: 100px;
+}
+
+p{
+  color: white;
+}
+.quantrow{
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  margin: 0px;
+}
+#carrinho-produto{
+    background-color: black;
+    border: 1px solid white;
+    border-radius: 15px;
+    width: 850px;
+    height: 500px;
+}
+#produto{
+  text-align: center;
+}
+
+#precoParcial{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25.98px;
+  line-height: 31px;
+  color: #FFFFFF;
+  position: relative;
+  left: 15px;
+}
+
+#confirma{
+    display: flex;
+    justify-content: center;
+}
+#total{
+    margin-bottom: 10vh;
+    text-align: center;
+    font-size: 30pt;
+}
+#comprar{
+    width: 30vh;
+    margin-bottom: 5vh;
+    font-size: 12pt;
+    color: white;
+    background-color: black;
+    border: 1px solid white;
+}
+
+#continuar{
+    width: 30vh;
+    margin-bottom: 5vh;
+    font-size: 12pt;
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+}
+
+#quant-product{
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25.98px;
+  line-height: 31px;
+  color: #FFFFFF;
+  position: relative;
+  left: 15px;
+}
+
+#nome p{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25.98px;
+  line-height: 31px;
+  color: #FFFFFF;
+  position: relative;
+  left: 15px;
+
+}
+
+
+#total h3{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25.98px;
+  line-height: 31px;
+  color: #FFFFFF;
+  position: relative;
+  left: 15px;
+
+}

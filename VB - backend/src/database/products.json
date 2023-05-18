@@ -1,0 +1,67 @@
+[
+	{
+		"id": "1",
+		"name": "Beer: Double Chocolate Stout",
+		"description":"Uma cerveja de cor preta, opaca, com formação de espuma marrom claro. No aroma, apresenta notas de café, chocolate amargo e tosta. Na boca, possui corpo médio, textura macia, amargor delicado e boa persistência. Essa cerveja possui uma cápsula de nitrogênio inserida na lata, o que confere um corpo mais cremoso e textura macia.",
+		"harmonize":"",
+		"price": 69.99,
+		"image": "Young.Stout.Grande.jpg"
+	},
+  {
+		"id": "2",
+		"name": "Beer: Barreled Treasure - Pilsner",
+		"description":" É um estilo que surgiu na cidade de Pilsen, região da Bohemia, na Republica Tcheca, com a criação da cerveja Pilsner Urquell. As cervejas Pilsen são caracterizadas por um lúpulo acentuado no aroma e sabor, geralmente da variedade Saaz, e por sua cor dourada brilhante.",
+		"harmonize":"",
+		"price": 105.00,
+		"image": "Barreled.Treasure. Imperial.Stout.Grande.jpg"
+	},
+	{
+		"id": "3",
+		"name": "Beer: Ouropretana - Brown Potter",
+		"description":"Maturada em barris de madeira amburana possui uma presença marcante de malte e madeira amburana, de coloração marrom escuro, brilhante e com espuma bege, cremosa e persistente. No sabor notas de café e chocolate proveniente dos maltes torrados e nuances bem leves de madeira amburana (parte da produção fica 30 dias maturando nos barris). Baixo amargor, comum entre as cervejas do estilo Brown Porter.",
+		"harmonize":"",
+		"price": 55.00,
+		"image": "ouropretana.brown.potter.jpg"
+	},
+	{
+		"id": "4",
+		"name": "Beer: Ouropretana - English Pale",
+		"description":"É um estilo bem maltado, de cor dourada e com amargor sutil e equilibrado revelado pelo lúpulo. Tem corpo e carbonatação medianos, espuma branca e cremosa e retrogosto de malte.",
+		"harmonize":"",
+		"price": 89.00,
+		"image": "Ouropretana.English.Pale.Ale.Grande.jpg"
+	},
+	{
+		"id": "5",
+		"name": "Beer: Ouropretana - Golden Larger",
+		"description":"O Golden Lager é um estilo de cerveja, que teve origem em Viena, na Áustria. Apresenta uma cerveja com cor variando do vermelho-claro ao cobre, corpo médio e um sabor suave e adocicado de malte levemente tostado que se equilibra com o amargor do lúpulo. Sua graduação alcoólica varia entre 4,7% e 5,5%. ",
+		"harmonize":"",
+		"price": 99.99,
+		"image": "Ouropretana.Golden.Lager.Grande.PNG"
+	},
+	{
+		"id": "6",
+		"name": "Beer: Negra Modelo - Honey beer",
+		"description":"A cerveja Negra Modelo é produzida no México no estilo Vienna Lager. A cerveja Negra Modelo possui coloração âmbar, espuma cremosa e abundante. Cerveja equilibrada entre o amargor e a doçura, a cerveja Negra Modelo apresenta notas de tostado e caramelo.",
+		"harmonize":"Carnes brancas como peru e frango, pizza e lombo assado.",
+		"price": 65.00,
+		"image": "Negra.Modelo.Grande.jpg"
+	},
+	{
+		"id": "7",
+		"name": "Beer: Impeesa - Porter",
+		"description":"Este estilo de cerveja é produzido na região da Baviera, especialmente para as celebrações da Oktoberfest. Apresenta aroma suave de malte tostado. Sua cor varia do âmbar alaranjado a cobre avermelhado profundo. De corpo médio, com dulçor de malte no início e final moderadamente seco.",
+		"harmonize":"",
+		"price": 65.00,
+		"image": "Impeesa.Porter.PNG"
+	},
+	{
+		"id": "8",
+		"name": "Beer: Sierra Nevada - Kölsch",
+		"description":"Pela regra geral, o nome Kölsch, só pode ser usado por aproximadamente 20 cervejarias da cidade de Köln (Colonia), na Alemanha, entretanto, existem várias cervejarias pelo mundo que produzem sua versão. Como resultado, é uma cerveja delicada, de coloração clara e brilhante. Produz uma espuma branca de baixa persistência. No aroma, revela um tom frutado, produzido pelo efeito característico da fermentação empregada nesse estilo, que está entre os principais estilos de cerveja do mundo.",
+		"harmonize":"",
+		"price": 35.00,
+		"image": "Sierra.Nevada.jpg"
+	}
+]
+

@@ -1,0 +1,25 @@
+<html lang="pt-br">
+  <%- include('includes/head', { title: 'Home' }) %>
+  <body>
+          <div class="home-age">
+            <div class="agerow">
+              <div class="imgAge">
+              <img class="image-age" src="/images/Logo/Logo sem fundo 600x600 sem opacidade.png">
+            </div>
+            <form method="POST" action="/verificar-idade">
+              <div class="col-md-9">
+                <p>Você tem 18 anos ou mais?</p>
+                <p>O consumo de bebidas alcoólicas é proibido para menores de 18 anos.</p>
+              </div>
+              <div class="age-Quest">                 
+                <button class="ageGateButton" name='age' value="Nao" style="min-width: 105px;"><b>Não</b></button>
+                <button class="ageGateButton" name='age' value="Sim" style="min-width: 105px;"><b>Sim</b></button>                  
+                </form>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+

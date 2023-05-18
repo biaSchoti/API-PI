@@ -1,0 +1,33 @@
+.product-box_image img{
+    width: 60%;
+    display: block;
+    margin: 0 auto;
+}
+
+.product-box_data{
+    text-align: center;
+}
+
+.product-box_data h2{
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-size: 30px;
+    line-height: 44px;
+    letter-spacing: 1.5px;
+    color: #FFFFFF;
+    padding-bottom: 10px;
+    
+}
+a {
+    text-decoration: none;
+  }
+
+  .product-box_data p{
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-size: 20px;
+    line-height: 44px;
+    color: #FFFFFF;
+    padding-bottom: 10px;
+    
+}

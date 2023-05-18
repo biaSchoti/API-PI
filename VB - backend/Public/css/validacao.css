@@ -1,0 +1,41 @@
+.age-Quest{
+  width: 225px;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+.image-age{
+  width: 15%;
+  align-items: center;
+  justify-content: center;
+  display: inline-block;
+  margin: 20px;
+}
+.col-md-9{
+  width: 100%;
+}
+.col-md-9 p{
+  font-family: 'Public Sans';
+  font-style: normal;
+  font-weight: 200;
+  font-size: 50px;
+  line-height: 44px;
+  letter-spacing: 1.5px;
+  color: #FFFFFF;
+  padding-bottom: 10px;
+  top: 100px;
+  text-align: center;
+  
+}
+
+.ageGateButton{
+    height: 32px;
+    padding: 0;
+    background-color: black;
+    border: 1px solid white;
+    color: yellow;
+    margin-bottom: 25px;
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 25px;
+}

@@ -1,0 +1,10 @@
+footer{
+    background-color: black;
+    padding: 1rem;
+}
+
+.caixafooter{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}

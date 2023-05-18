@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html>
+<!-- Include Head -->
+<%- include('includes/head', { title: 'Incluir Usuário' }) %>
+
+	<body>
+		<!-- Header -->
+		<%- include('includes/header') %>
+		<!-- /Header -->
+        <div class="login-container">
+			<div class="title-login">
+			  <h1>LOGIN</h1>
+			</div>
+
+          <% if (typeof errors !== 'undefined') { %>
+            <ul>
+              <% for(let error in errors) { %>
+                <li> <%= errors[error].msg %> </li>
+              <% } %>
+            </ul>
+          <% } %>
+
+          <div class='acess-login'>
+			<form method="POST" action="/login" class="login-form">
+			<input type="email" id="email" name="email" placeholder="E-mail">
+			<input type="password" id="passaword" name="password" placeholder="Senha">
+	  </div>
+	  <div class="esqueci-senha">
+		<a href="#" id="forgot-pass">Esquecer a senha?</a></div>
+		<button type="submit">Entrar</button>
+	</form>
+	  <div class="register-container">
+			<a href="/formulario">Criar Conta</a>
+		</div>
+	</div>
+
+			<!-- footer -->
+			<%- include('includes/footer') %>
+			<!-- /footer -->
+	</body>
+
+</html>

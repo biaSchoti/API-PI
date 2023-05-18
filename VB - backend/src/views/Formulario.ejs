@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('includes/head', { title: 'Formulário' }) %>
+
+  <body>
+
+    <%- include('includes/header') %>
+    <div class="card-form">
+      <aside class="column">
+          <img  class="image"src="../images/Logo/Logo sem fundo 600x600 sem opacidade.png" alt="logotipo">
+          <div class="description-empresa">
+          <h5>Faça parte da nossa <br> <strong>BEERHOUSE</strong></h5>
+          <br>
+          <p>Receba uma  newsletter com dicas de <br> fabricação e receitas para harmonização em <br>diversas ocasiões. <br>
+          Surpreenda o paladar de seus amigos <br> e família.<br>
+          Todo mês um catálogo exclusivo de <br> cervejas dos maiores fabricantes <br> artesanais do Brasil.</p>
+        </div>
+        </aside>
+    <div class="conteudo">
+      <div class="header">
+        <h2>Seja um VIKINGS</h2>
+      </div>
+      <% if (typeof errors !== 'undefined') { %>
+        <ul>
+          <% for(let error in errors) { %>
+            <li> <%= errors[error].msg %> </li>
+          <% } %>
+        </ul>
+      <% } %>
+      <form action="/formulario" method="POST">
+      <div class="form-control">
+      <input type="date" id="dataNasc" name="dt_nasc" placeholder="Data de Nascimento">
+       </div> 
+        <div class="form-control">
+          <input type="text" id="username" name="name" placeholder="Nome Completo">
+        </div>
+        <div class="form-control">
+          <input type="email" id="email" name="email" placeholder="Digite seu email">
+        </div>
+        <div class="form-control">
+          <input type="password" id="password" name="password" placeholder="Digite sua senha">
+        </div>
+        <div class="form-control">
+          <input type="password" id="pwdConfirm" placeholder="Confirme sua senha">
+        </div>
+        <div >
+          <button type="submit" class="enviar">Enviar</button>
+      </div>
+      </form>
+    </div>
+  </body>
+</html>

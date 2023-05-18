@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<!-- Include Head -->
+<%- include('includes/head', { title: 'Incluir Produto' }) %>
+
+	<body>
+		<!-- Header -->
+		<%- include('includes/header') %>
+		<!-- /Header -->
+		<div class="destaque"> Nossos Produtos </div>
+
+		<section classe="seach-product">
+			<div class="products-disp">
+				<label>Filtrar por:</label>
+				<select name="Filtro">
+				<option value="Stout">Stout</option>
+				<option value="Pilsen">Pilsen</option>
+				<option value="Lager">Lager</option>
+				<option value="Pale">Pale</option>
+		</select>
+		  </div>
+			<div class="ordenacao">
+			<label>Ordenar por:</label>
+			<select name="Ordenar">
+			<option value="Popular">Mais Popular</option>
+			<option value="Recente">Mais Recente</option>
+			<option value="Oferta">Oferta</option>
+			<option value="Maior">Maior Preço</option>
+			<option value="Menor">Menor Preço</option>
+		  </select>
+		  </div>
+		</section>
+
+		<div class="container products-wrapper">
+			<div class="row">
+			  <div class="col-12">
+			  </div>
+			  <% products.forEach((products) => {let finalPrice = (products.price) %>
+				<div class="col-12 col-sm-6 col-lg-3">
+				  <section class="product-box">
+					<a href="/product/detail/<%= products.id %>">
+					  <figure class="product-box_image">
+						<img src="/images/Produtos/<%= products.image %>" alt="imagen do produto">
+					  </figure>
+					  <article class="product-box_data">
+						<h2>
+						  R$ <%= toThousand(finalPrice) %>
+						</h2>
+						<p>
+						  <%= products.name %>
+						</p>
+					  </article>
+					</a>
+				  </section>
+				</div>
+			  <% }) %>
+			</div>
+		  </div>
+		  <%- include('includes/footer') %>
+		</body>
+	  </html>
