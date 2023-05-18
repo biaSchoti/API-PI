@@ -10,8 +10,8 @@ cadastro: (req, res) => {
   createEJS: async (req, res) => {
     const errors = validationResult(req)
     if (!errors.isEmpty())
-        res.render('formulario', { errors: errors.mapped() }) 
-
+      res.status(400).json({ error: errors.mapped() })
+    
     try {
       const user = await User.findOne({
         where: {
@@ -30,7 +30,7 @@ cadastro: (req, res) => {
 
           await User.create(newUser) 
 
-          res.redirect('/home')
+          res.status(201).json({ msg: 'Usuário Criado com Sucesso' })
       } else res.render('formulario', { errors: [{ msg: "Usuário já cadastrado!" }] })
     } catch (error) {
       res.status(400).json({ error })

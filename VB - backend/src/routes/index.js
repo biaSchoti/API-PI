@@ -56,7 +56,7 @@ router.get('/carrinho', CarrinhoController.carrinho)
 // # Product
 router.get('/product/nossoproduto', productController.productView)
 router.get('/product/detail/:id', productController.detailEJS)
-router.get('/product/create',  productController.createproduct)
+router.get('/product/create', productController.createproduct)
 router.post(
   '/product',
   upload.any(),
@@ -65,9 +65,7 @@ router.post(
     .withMessage('Nome do Produto deve ser informado!'),
   body('description')
     .notEmpty()
-    .withMessage('Descrição deve ser informada!'),
-  productController.createEJS
-)
+    .withMessage('Descrição deve ser informada!'), productController.createEJS)
 router.put('/product/:id',   upload.any(), productController.updateEJS)
 router.delete('/product/:id', productController.deleteEJS)
 
