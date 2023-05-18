@@ -42,20 +42,5 @@ search: async (req, res) => {
   validacao: (req, res) => {
     res.status(200).json(validacao)
   },
-  aboutus: (req, res) => {
-    res.render('sobrenos', { })
-  },
-  contact: (req, res) => {
-    res.render('contact', { })
-  },
-  terms: (req, res) => {
-    res.render('terms', { })
-  },
-  privacy: (req, res) => {
-    res.render('privacy', { })
-  },
-  blog: (req, res) => {
-    res.render('blog', { })
-  },
 }
 module.exports = MainController

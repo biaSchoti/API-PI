@@ -20,11 +20,6 @@ const auth = require('../middlewares/auth')
 router.get('/', log, mainController.validacao)
 router.get('/home',log ,mainController.index)
 router.get('/search', mainController.search)
-router.get('/aboutus', mainController.aboutus)
-router.get('/contact', mainController.contact)
-router.get('/terms', mainController.terms)
-router.get('/privacy', mainController.privacy)
-router.get('/blog', mainController.blog)
 router.post('/verificar-idade', mainController.age)
 
 //LoginController
@@ -61,8 +56,7 @@ router.get('/carrinho', CarrinhoController.carrinho)
 // # Product
 router.get('/product/nossoproduto', productController.productView)
 router.get('/product/detail/:id', productController.detailEJS)
-router.get('/product/create',  auth, productController.createproduct)
-router.get('/product/update/:id', auth, productController.updateFormEJS)
+router.get('/product/create',  productController.createproduct)
 router.post(
   '/product',
   upload.any(),
@@ -75,7 +69,7 @@ router.post(
   productController.createEJS
 )
 router.put('/product/:id',   upload.any(), productController.updateEJS)
-router.delete('/product/:id', auth, productController.deleteEJS)
+router.delete('/product/:id', productController.deleteEJS)
 
 
 module.exports = router
