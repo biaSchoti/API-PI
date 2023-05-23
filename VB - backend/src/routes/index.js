@@ -17,18 +17,14 @@ const  log = require('../middlewares/log')
 const auth = require('../middlewares/auth')
 
 //MainController
-router.get('/', log, mainController.validacao)
 router.get('/home',log ,mainController.index)
 router.get('/search', mainController.search)
 router.post('/verificar-idade', mainController.age)
 
 //LoginController
-router.get('/login', loginController.login)
-router.get('/login/minha-conta', auth, loginController.perfil)
 router.post('/login', loginController.loginEJS)
 
 //FormularioController
-router.get('/formulario', formularioController.cadastro)
 router.post(
   '/formulario',
   body('dt_nasc')
@@ -50,15 +46,13 @@ router.post(
     .withMessage('Campo E-mail deve ser preenchido'),
     formularioController.createEJS
 )
-//CarrinhoController
-router.get('/carrinho', CarrinhoController.carrinho)
 
 // # Product
 router.get('/product/nossoproduto', productController.productView)
 router.get('/product/detail/:id', productController.detailEJS)
-router.get('/product/create', productController.createproduct)
 router.post(
   '/product',
+  auth,
   upload.any(),
   body('name')
     .notEmpty()
@@ -66,8 +60,8 @@ router.post(
   body('description')
     .notEmpty()
     .withMessage('Descrição deve ser informada!'), productController.createEJS)
-router.put('/product/:id',   upload.any(), productController.updateEJS)
-router.delete('/product/:id', productController.deleteEJS)
+router.put('/product/:id', auth, upload.any(), productController.updateEJS)
+router.delete('/product/:id', auth,productController.deleteEJS)
 
 
 module.exports = router

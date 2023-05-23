@@ -1,9 +1,6 @@
 const { validationResult } = require('express-validator')
-/* const products = require('../database/products.json') */
 const { Product, TypeBeer } = require('../models')
-/* const menos = document.getElementById("minus");
-const mais = document.getElementById("plus");
-const quantidadeInput = document.getElementById("quant"); */
+
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
 
@@ -38,10 +35,6 @@ const ProductController = {
     res.status(400).json({ error })
   }
 },
-  createproduct: (req, res) => {
-    res.render('product-create-form')
-  },
-
   createEJS: async (req, res) => {
     let image = ''
 
@@ -50,7 +43,7 @@ const ProductController = {
         res.status(400).json({ error: errors.mapped() })
 
     try {
-      if (req.files[0] !== undefined) {
+      if (req.files && req.files[0]) {
         image = req.files[0].filename
       } else {
         image = 'default-image.png'
@@ -62,13 +55,15 @@ const ProductController = {
         image: image,
     
       }
+      
       console.log(req.body)
 
-      await Product.create(newProduct) // cria o registro no banco de dados
+      await Product.create(newProduct)
 
       res.status(201).json({ msg: 'Produto Criado com Sucesso' })
+
     } catch (error) {
-      res.status(400).json({ error })
+      res.status(400).json({ error: "Algo está errado, verifique os dados" })
     } 
   },
   // Update product

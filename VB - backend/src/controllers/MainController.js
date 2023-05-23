@@ -39,8 +39,5 @@ search: async (req, res) => {
         res.render('index')
     } else res.send('Você não pode acessar o site')
   },
-  validacao: (req, res) => {
-    res.status(200).json(validacao)
-  },
 }
 module.exports = MainController

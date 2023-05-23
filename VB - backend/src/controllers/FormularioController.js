@@ -4,9 +4,6 @@ const { User } = require('../models')
 
 const formularioController = {
 
-cadastro: (req, res) => {
-    res.render('formulario', { })
-  },
   createEJS: async (req, res) => {
     const errors = validationResult(req)
     if (!errors.isEmpty())
