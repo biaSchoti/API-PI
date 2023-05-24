@@ -18,7 +18,6 @@ const auth = require('../middlewares/auth')
 
 //MainController
 router.get('/home',log ,mainController.index)
-router.get('/search', mainController.search)
 router.post('/verificar-idade', mainController.age)
 
 //LoginController

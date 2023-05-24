@@ -1,14 +1,23 @@
 const { validationResult } = require('express-validator')
 const { Product, TypeBeer } = require('../models')
-
-
-const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+const { Op } = require('sequelize')
 
 const ProductController = {
    productView: async (req, res) => {
-	try {
+    let search = ''
 
-    const products = await Product.findAll()
+    if (req.query.keywords)
+    search = req.query.keywords
+	
+    try {
+    const products = await Product.findAll({
+      where: {
+        name: {
+          [Op.substring]: search
+        }
+      }
+    })
+
     res.status(200).json(products)
 
 	} catch (error){
@@ -55,7 +64,7 @@ const ProductController = {
         image: image,
     
       }
-      
+
       console.log(req.body)
 
       await Product.create(newProduct)
@@ -75,7 +84,7 @@ const ProductController = {
       const productToEdit = await Product.findByPk(id)
     
       if (productToEdit != undefined) {
-          if (req.files[0] !== undefined) {
+          if (req.files && req.files[0]) {
               image = req.files[0].filename
           } else {
               image = productToEdit.image
